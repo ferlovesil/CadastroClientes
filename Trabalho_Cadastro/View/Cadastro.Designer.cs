@@ -107,11 +107,11 @@
             // link_Regulamento
             // 
             this.link_Regulamento.AutoSize = true;
-            this.link_Regulamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.link_Regulamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.link_Regulamento.LinkColor = System.Drawing.Color.Gold;
-            this.link_Regulamento.Location = new System.Drawing.Point(264, 262);
+            this.link_Regulamento.Location = new System.Drawing.Point(262, 259);
             this.link_Regulamento.Name = "link_Regulamento";
-            this.link_Regulamento.Size = new System.Drawing.Size(80, 13);
+            this.link_Regulamento.Size = new System.Drawing.Size(92, 15);
             this.link_Regulamento.TabIndex = 46;
             this.link_Regulamento.TabStop = true;
             this.link_Regulamento.Text = "regulamento.";
@@ -216,6 +216,7 @@
             this.btn_Cadastrar.TabIndex = 36;
             this.btn_Cadastrar.Text = "Cadastrar";
             this.btn_Cadastrar.UseVisualStyleBackColor = true;
+            this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
             // 
             // mtxt_ComparacaoSenha
             // 
@@ -235,6 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(470, 473);
             this.Controls.Add(this.mtxt_ComparacaoSenha);
             this.Controls.Add(this.btn_Voltar);
@@ -253,6 +255,7 @@
             this.Controls.Add(this.lbl_Usuario);
             this.Controls.Add(this.lbl_Nome);
             this.Controls.Add(this.btn_Cadastrar);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Cadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro";
