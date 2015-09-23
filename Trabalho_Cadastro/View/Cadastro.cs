@@ -87,73 +87,81 @@ namespace Trabalho_Cadastro.View
 
         private void btn_Cadastrar_Click(object sender, EventArgs e)
         {
-            if(mtxt_ComparacaoSenha.Text == mtxt_Senha.Text){
-                mtxt_ComparacaoSenha.BackColor = Color.White;
-
-            if (File.Exists("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt"))
+            if ((mtxt_Nome.Text.Trim().Length != 0) && (mtxt_Senha.Text.Trim().Length != 0) && (mtxt_Usuario.Text.Trim().Length != 0) && (mtxt_ComparacaoSenha.Text.Trim().Length != 0))
             {
-                try
+                if (mtxt_ComparacaoSenha.Text == mtxt_Senha.Text)
                 {
-                    FileInfo informacoesdoarquivo = new FileInfo("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt");
+                    mtxt_ComparacaoSenha.BackColor = Color.White;
+
+                    if (File.Exists("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt"))
                     {
-                        if (informacoesdoarquivo.Length <= 0)
+                        try
                         {
-                            Cadastrar_Usuario c = new Cadastrar_Usuario();
-                            c.CriaArquivodeUsuarios(mtxt_Nome.Text, mtxt_Usuario.Text, mtxt_Senha.Text);
-                            mtxt_Nome.Text = "";
-                            mtxt_Senha.Text = "";
-                            mtxt_Usuario.Text = "";
-                            mtxt_ComparacaoSenha.Text = "";
-                        }
-                        else
-                        {
-                            try
+                            FileInfo informacoesdoarquivo = new FileInfo("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt");
                             {
-                                using (StreamWriter sw = File.AppendText("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt"))
+                                if (informacoesdoarquivo.Length <= 0)
                                 {
-                                    sw.Write(mtxt_Nome.Text + "*" + mtxt_Usuario.Text + "*" + mtxt_Senha.Text + "\r\n");
+                                    Cadastrar_Usuario c = new Cadastrar_Usuario();
+                                    c.CriaArquivodeUsuarios(mtxt_Nome.Text, mtxt_Usuario.Text, mtxt_Senha.Text);
                                     mtxt_Nome.Text = "";
                                     mtxt_Senha.Text = "";
                                     mtxt_Usuario.Text = "";
                                     mtxt_ComparacaoSenha.Text = "";
                                 }
-                            }
-                            catch (IOException)
-                            {
-                                MessageBox.Show("Não pode abrir o arquivo pois ja está sendo utilizado por outro programa");
+                                else
+                                {
+                                    try
+                                    {
+                                        using (StreamWriter sw = File.AppendText("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt"))
+                                        {
+                                            sw.Write(mtxt_Nome.Text + "*" + mtxt_Usuario.Text + "*" + mtxt_Senha.Text + "\r\n");
+                                            mtxt_Nome.Text = "";
+                                            mtxt_Senha.Text = "";
+                                            mtxt_Usuario.Text = "";
+                                            mtxt_ComparacaoSenha.Text = "";
+                                        }
+                                    }
+                                    catch (IOException)
+                                    {
+                                        MessageBox.Show("Não pode abrir o arquivo pois ja está sendo utilizado por outro programa");
+                                    }
+                                }
                             }
                         }
+                        catch (FileNotFoundException)
+                        {
+                            MessageBox.Show("Não foi possível encontrar o arquivo");
+                        }
+                        catch (FileLoadException)
+                        {
+                            MessageBox.Show("Não foi possível carregar o arquivo");
+                        }
+                        catch (FieldAccessException)
+                        {
+                            MessageBox.Show("Não foi possível acessar o arquivo");
+                        }
+                    }
+                    else
+                    {
+                        Cadastrar_Usuario c = new Cadastrar_Usuario();
+                        c.CriaArquivodeUsuarios(mtxt_Nome.Text, mtxt_Usuario.Text, mtxt_Senha.Text + "\r\n");
+                        mtxt_Nome.Text = "";
+                        mtxt_Senha.Text = "";
+                        mtxt_Usuario.Text = "";
+                        mtxt_ComparacaoSenha.Text = "";
                     }
                 }
-                catch (FileNotFoundException)
+                else
                 {
-                    MessageBox.Show("Não foi possível encontrar o arquivo");
-                }
-                catch (FileLoadException)
-                {
-                    MessageBox.Show("Não foi possível carregar o arquivo");
-                }
-                catch (FieldAccessException)
-                {
-                    MessageBox.Show("Não foi possível acessar o arquivo");
+                    MessageBox.Show("Por favor insira a mesma senha que digitou no campo Senha!");
+                    mtxt_ComparacaoSenha.BackColor = Color.Red;
+                    mtxt_ComparacaoSenha.Focus();
+                    mtxt_ComparacaoSenha.Select();
                 }
             }
             else
             {
-                Cadastrar_Usuario c = new Cadastrar_Usuario();
-                c.CriaArquivodeUsuarios(mtxt_Nome.Text, mtxt_Usuario.Text, mtxt_Senha.Text + "\r\n");
-                mtxt_Nome.Text = "";
-                mtxt_Senha.Text = "";
-                mtxt_Usuario.Text = "";
-                mtxt_ComparacaoSenha.Text = "";
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor insira a mesma senha que digitou no campo Senha!");
-                mtxt_ComparacaoSenha.BackColor = Color.Red;
-                mtxt_ComparacaoSenha.Focus();
-                mtxt_ComparacaoSenha.Select();
+                MessageBox.Show("Existem Campos vazios, por favor complete todos os campos!");
             }
         }
 
