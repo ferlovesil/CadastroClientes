@@ -11,13 +11,13 @@ namespace Trabalho_Cadastro.Control
     class Cadastrar_Usuario
     {
 
-
+        public string caminho = "C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt";
 
 
         public void CriaArquivodeUsuarios(string Nome, string Usuario, string Senha)
         {
             StreamWriter CriadordeArquivo;
-            CriadordeArquivo = new StreamWriter("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt");
+            CriadordeArquivo = new StreamWriter(caminho);
             CriadordeArquivo.WriteLine(Nome.Trim() + "*" + Usuario.Trim() + "*" + Senha.Trim());
             CriadordeArquivo.Close();
         }
@@ -25,7 +25,7 @@ namespace Trabalho_Cadastro.Control
         //public void LeArquivodeUsuarios()
         //{
         //    StreamReader LeitordeArquivo;
-        //    LeitordeArquivo = new StreamReader("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt");
+        //    LeitordeArquivo = new StreamReader(caminho);
         //    string Linha;
 
         //    while ((Linha = LeitordeArquivo.ReadLine()) != null)
@@ -41,7 +41,7 @@ namespace Trabalho_Cadastro.Control
         //            Aux_Senha = Aux_Conjunto[2];
 
         //            StreamWriter CriadordeArquivo;
-        //            CriadordeArquivo = new StreamWriter("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios2.txt");
+        //            CriadordeArquivo = new StreamWriter(caminho);
         //            CriadordeArquivo.WriteLine(Aux_Conjunto[2]);
         //            CriadordeArquivo.Close();
     }

@@ -8,6 +8,7 @@ namespace Trabalho_Cadastro.View
 {
     public partial class Cadastro : Form
     {
+        public string caminho = "C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt";
 
         public Cadastro()
         {
@@ -18,11 +19,13 @@ namespace Trabalho_Cadastro.View
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             btn_Cadastrar.Enabled = true;
+            txt_Mensagem.Visible = false;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             btn_Cadastrar.Enabled = false;
+            txt_Mensagem.Visible = true;
         }
 
         private void link_Regulamento_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -93,11 +96,11 @@ namespace Trabalho_Cadastro.View
                 {
                     mtxt_ComparacaoSenha.BackColor = Color.White;
 
-                    if (File.Exists("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt"))
+                    if (File.Exists(caminho))
                     {
                         try
                         {
-                            FileInfo informacoesdoarquivo = new FileInfo("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt");
+                            FileInfo informacoesdoarquivo = new FileInfo(caminho);
                             {
                                 if (informacoesdoarquivo.Length <= 0)
                                 {
@@ -112,7 +115,7 @@ namespace Trabalho_Cadastro.View
                                 {
                                     try
                                     {
-                                        using (StreamWriter sw = File.AppendText("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt"))
+                                        using (StreamWriter sw = File.AppendText(caminho))
                                         {
                                             sw.Write(mtxt_Nome.Text + "*" + mtxt_Usuario.Text + "*" + mtxt_Senha.Text + "\r\n");
                                             mtxt_Nome.Text = "";

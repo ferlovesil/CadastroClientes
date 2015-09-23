@@ -45,6 +45,7 @@
             this.lbl_Nome = new System.Windows.Forms.Label();
             this.btn_Cadastrar = new System.Windows.Forms.Button();
             this.mtxt_ComparacaoSenha = new System.Windows.Forms.MaskedTextBox();
+            this.txt_Mensagem = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn_Voltar
@@ -233,12 +234,27 @@
             this.mtxt_ComparacaoSenha.Click += new System.EventHandler(this.mtxt_ComparacaoSenha_Click);
             this.mtxt_ComparacaoSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mtxt_ComparacaoSenha_KeyDown);
             // 
+            // txt_Mensagem
+            // 
+            this.txt_Mensagem.BackColor = System.Drawing.Color.SteelBlue;
+            this.txt_Mensagem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Mensagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Mensagem.ForeColor = System.Drawing.Color.Gold;
+            this.txt_Mensagem.Location = new System.Drawing.Point(52, 421);
+            this.txt_Mensagem.Multiline = true;
+            this.txt_Mensagem.Name = "txt_Mensagem";
+            this.txt_Mensagem.Size = new System.Drawing.Size(361, 50);
+            this.txt_Mensagem.TabIndex = 54;
+            this.txt_Mensagem.Text = "É necessário ler o regulamento, e clicar em \"Eu Aceito\" para se cadastrar!";
+            this.txt_Mensagem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(470, 473);
+            this.Controls.Add(this.txt_Mensagem);
             this.Controls.Add(this.mtxt_ComparacaoSenha);
             this.Controls.Add(this.btn_Voltar);
             this.Controls.Add(this.btn_IrParaLogin);
@@ -284,5 +300,6 @@
         private System.Windows.Forms.Label lbl_Nome;
         private System.Windows.Forms.Button btn_Cadastrar;
         private System.Windows.Forms.MaskedTextBox mtxt_ComparacaoSenha;
+        private System.Windows.Forms.TextBox txt_Mensagem;
     }
 }
