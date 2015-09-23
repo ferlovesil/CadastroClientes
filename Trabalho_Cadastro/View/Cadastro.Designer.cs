@@ -55,6 +55,7 @@
             this.btn_Voltar.TabIndex = 52;
             this.btn_Voltar.Text = "Voltar";
             this.btn_Voltar.UseVisualStyleBackColor = true;
+            this.btn_Voltar.Click += new System.EventHandler(this.btn_Voltar_Click);
             // 
             // btn_IrParaLogin
             // 
