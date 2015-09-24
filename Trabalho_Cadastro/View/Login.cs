@@ -30,8 +30,7 @@ namespace Trabalho_Cadastro.View
         {
             if (string.Compare(textocaptcha,txt_Informacao.Text.ToLower())==0)
             {
-                Cadastrar_Usuario c = new Cadastrar_Usuario();
-
+                
                 VerificadorUsuarioeSenha v = new VerificadorUsuarioeSenha(mtxt_UsuarioLogin.Text, mtxt_SenhaLogin.Text);
 
                 int i = v.Resultado;

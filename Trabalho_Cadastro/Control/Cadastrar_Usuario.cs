@@ -14,12 +14,14 @@ namespace Trabalho_Cadastro.Control
         public string caminho = "C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt";
 
 
-        public void CriaArquivodeUsuarios(string Nome, string Usuario, string Senha)
+        public Cadastrar_Usuario(string Nome, string Usuario, string Senha, string PerguntaSeguranca)
         {
             StreamWriter CriadordeArquivo;
             CriadordeArquivo = new StreamWriter(caminho);
-            CriadordeArquivo.WriteLine(Nome.Trim() + "*" + Usuario.Trim() + "*" + Senha.Trim());
+            CriadordeArquivo.WriteLine(Nome.Trim() + "*" + Usuario.Trim() + "*" + Senha.Trim() + "*" + PerguntaSeguranca.Trim() + "\r\n");
             CriadordeArquivo.Close();
         }
-    }
+           }
 }
+
+

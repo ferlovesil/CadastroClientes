@@ -104,13 +104,13 @@ namespace Trabalho_Cadastro.View
                             {
                                 if (informacoesdoarquivo.Length <= 0)
                                 {
-                                    Cadastrar_Usuario c = new Cadastrar_Usuario();
-                                    c.CriaArquivodeUsuarios(mtxt_Nome.Text, mtxt_Usuario.Text, mtxt_Senha.Text);
+                                    Cadastrar_Usuario c = new Cadastrar_Usuario(mtxt_Nome.Text, mtxt_Usuario.Text, mtxt_Senha.Text,mtxt_RespostaSecreta.Text);
+
                                     LimpaCampos();
                                 }
                                 else
                                 {
-                                    VerificadorUsuarioeSenha v = new VerificadorUsuarioeSenha(mtxt_Usuario.Text, mtxt_Senha.Text);
+                                    VerificadorUsuarioeSenha v = new VerificadorUsuarioeSenha(mtxt_Usuario.Text);
                                     int y = v.Resultado;
                                     
                                     if (y == 0)
@@ -123,6 +123,7 @@ namespace Trabalho_Cadastro.View
                                             {
                                                 sw.Write(mtxt_Nome.Text + "*" + mtxt_Usuario.Text + "*" + mtxt_Senha.Text + "\r\n");
                                                 LimpaCampos();
+                                                
                                             }
                                         }//fim segundo try
                                         catch (IOException)
@@ -152,8 +153,7 @@ namespace Trabalho_Cadastro.View
                     }
                     else
                     {
-                        Cadastrar_Usuario c = new Cadastrar_Usuario();
-                        c.CriaArquivodeUsuarios(mtxt_Nome.Text, mtxt_Usuario.Text, mtxt_Senha.Text + "\r\n");
+                        Cadastrar_Usuario c = new Cadastrar_Usuario(mtxt_Nome.Text, mtxt_Usuario.Text, mtxt_Senha.Text,mtxt_RespostaSecreta.Text);
                         LimpaCampos();
                     }
                 }
