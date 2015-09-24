@@ -22,8 +22,9 @@ namespace Trabalho_Cadastro.Control
             CriadordeArquivo.Close();
         }
 
-        public void LeArquivodeUsuarios(string Usuario, string Senha)
+        public int VerificadordeUsuarioeSenha(string Usuario, string Senha)
         {
+            int i = 0;
             StreamReader LeitordeArquivo;
             LeitordeArquivo = new StreamReader(caminho);
             string Linha;
@@ -40,10 +41,14 @@ namespace Trabalho_Cadastro.Control
 
                     if ((string.Compare(Usuario,Aux_Usuario)==0)&&(string.Compare(Senha,Aux_Senha)==0))
                     {
-
+                        i = 1;
 
                     }
+
             }
+            LeitordeArquivo.Close();
+            return i;
+           
         }
     }
 }

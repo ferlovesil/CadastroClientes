@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_Cadastro.Control;
 
 namespace Trabalho_Cadastro.View
 {
@@ -20,29 +21,9 @@ namespace Trabalho_Cadastro.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-                   
-            StreamReader LeitordeArquivo;
-            LeitordeArquivo = new StreamReader("C:\\Users\\Lucas\\Desktop\\PC\\PUC\\SEGUNDO SEMESTRE\\Presenciais\\LC\\Trabalho_Cadastro\\Trabalho_Cadastro\\data\\arquivodeusuarios.txt");
-            string Linha;
-            int i = 0;
-
-            while ((Linha = LeitordeArquivo.ReadLine()) != null)
-            {
-                string Aux_Linha, Aux_Usuario, Aux_Nome, Aux_Senha;
-                Aux_Linha = Linha;
-                string[] Aux_Conjunto = Linha.Split('*');
-                
-                    Aux_Nome = Aux_Conjunto[0];
-                    Aux_Usuario = Aux_Conjunto[1];
-                    Aux_Senha = Aux_Conjunto[2];
-
-                    if ((string.Compare(mtxt_UsuarioLogin.Text,Aux_Usuario)==0)&&(string.Compare(mtxt_SenhaLogin.Text,Aux_Senha)==0))
-                    {
-
-                        i = 1;
-                    }
-
-            }
+            Cadastrar_Usuario c = new Cadastrar_Usuario();
+            int i = c.VerificadordeUsuarioeSenha(mtxt_UsuarioLogin.Text, mtxt_SenhaLogin.Text);
+            
             if (i == 0)
             {
                 MessageBox.Show("Informe um nome de usuário ou senha corretos");
