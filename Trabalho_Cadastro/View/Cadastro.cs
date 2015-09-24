@@ -113,24 +113,54 @@ namespace Trabalho_Cadastro.View
                                 }
                                 else
                                 {
-                                    try
+
+                                    int y = 0;
+                                    StreamReader LeitordeArquivo;
+                                    LeitordeArquivo = new StreamReader(caminho);
+                                    string Linha;
+
+                                    while ((Linha = LeitordeArquivo.ReadLine()) != null)
                                     {
-                                        using (StreamWriter sw = File.AppendText(caminho))
+                                        string Aux_Linha, Aux_Usuario, Aux_Nome, Aux_Senha;
+                                        Aux_Linha = Linha;
+                                        string[] Aux_Conjunto = Linha.Split('*');
+
+                                        Aux_Nome = Aux_Conjunto[0];
+                                        Aux_Usuario = Aux_Conjunto[1];
+                                        Aux_Senha = Aux_Conjunto[2];
+
+                                        if ((string.Compare(mtxt_Usuario.Text, Aux_Usuario) == 0) && (string.Compare(mtxt_Senha.Text, Aux_Senha) == 0))
                                         {
-                                            sw.Write(mtxt_Nome.Text + "*" + mtxt_Usuario.Text + "*" + mtxt_Senha.Text + "\r\n");
-                                            mtxt_Nome.Text = "";
-                                            mtxt_Senha.Text = "";
-                                            mtxt_Usuario.Text = "";
-                                            mtxt_ComparacaoSenha.Text = "";
+                                            y = 1;
+                                            MessageBox.Show("Esse usuário já está cadastrado, por favor insira outro nome de usuário!");
+
                                         }
                                     }
-                                    catch (IOException)
+                                    LeitordeArquivo.Close();
+                                    if (y == 0)
                                     {
-                                        MessageBox.Show("Não pode abrir o arquivo pois ja está sendo utilizado por outro programa");
+                                        try
+                                        {
+
+
+                                            using (StreamWriter sw = File.AppendText(caminho))
+                                            {
+                                                sw.Write(mtxt_Nome.Text + "*" + mtxt_Usuario.Text + "*" + mtxt_Senha.Text + "\r\n");
+                                                mtxt_Nome.Text = "";
+                                                mtxt_Senha.Text = "";
+                                                mtxt_Usuario.Text = "";
+                                                mtxt_ComparacaoSenha.Text = "";
+                                            }
+                                        }//fim segundo try
+                                        catch (IOException)
+                                        {
+                                            MessageBox.Show("Não pode abrir o arquivo pois ja está sendo utilizado por outro programa");
+                                        }
                                     }
+                                    y = 0;
                                 }
                             }
-                        }
+                        }//primeiro Try
                         catch (FileNotFoundException)
                         {
                             MessageBox.Show("Não foi possível encontrar o arquivo");
@@ -171,8 +201,8 @@ namespace Trabalho_Cadastro.View
 
         private void btn_Voltar_Click(object sender, EventArgs e)
         {
-            //Cadastrar_Usuario l = new Cadastrar_Usuario();
-            //l.LeArquivodeUsuarios();
+            Cadastrar_Usuario l = new Cadastrar_Usuario();
+            l.LeArquivodeUsuarios(mtxt_Usuario.Text, mtxt_Senha.Text);
 
         }
     }

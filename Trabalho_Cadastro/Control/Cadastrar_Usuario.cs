@@ -22,28 +22,28 @@ namespace Trabalho_Cadastro.Control
             CriadordeArquivo.Close();
         }
 
-        //public void LeArquivodeUsuarios()
-        //{
-        //    StreamReader LeitordeArquivo;
-        //    LeitordeArquivo = new StreamReader(caminho);
-        //    string Linha;
+        public void LeArquivodeUsuarios(string Usuario, string Senha)
+        {
+            StreamReader LeitordeArquivo;
+            LeitordeArquivo = new StreamReader(caminho);
+            string Linha;
 
-        //    while ((Linha = LeitordeArquivo.ReadLine()) != null)
-        //    {
-        //        string Aux_Linha, Aux_Usuario, Aux_Nome, Aux_Senha;
-        //        Aux_Linha = Linha;
-        //        string[] Aux_Conjunto = Linha.Split('*');
-        //        if (Aux_Conjunto.Length == 2)
-        //        {
+            while ((Linha = LeitordeArquivo.ReadLine()) != null)
+            {
+                string Aux_Linha, Aux_Usuario, Aux_Nome, Aux_Senha;
+                Aux_Linha = Linha;
+                string[] Aux_Conjunto = Linha.Split('*');
+                
+                    Aux_Nome = Aux_Conjunto[0];
+                    Aux_Usuario = Aux_Conjunto[1];
+                    Aux_Senha = Aux_Conjunto[2];
 
-        //            Aux_Nome = Aux_Conjunto[0];
-        //            Aux_Usuario = Aux_Conjunto[1];
-        //            Aux_Senha = Aux_Conjunto[2];
+                    if ((string.Compare(Usuario,Aux_Usuario)==0)&&(string.Compare(Senha,Aux_Senha)==0))
+                    {
 
-        //            StreamWriter CriadordeArquivo;
-        //            CriadordeArquivo = new StreamWriter(caminho);
-        //            CriadordeArquivo.WriteLine(Aux_Conjunto[2]);
-        //            CriadordeArquivo.Close();
+
+                    }
+            }
+        }
     }
 }
-
