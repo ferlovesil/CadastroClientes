@@ -90,7 +90,7 @@ namespace Trabalho_Cadastro.View
 
         private void btn_Cadastrar_Click(object sender, EventArgs e)
         {
-            if ((mtxt_Nome.Text.Trim().Length != 0) && (mtxt_Senha.Text.Trim().Length != 0) && (mtxt_Usuario.Text.Trim().Length != 0) && (mtxt_ComparacaoSenha.Text.Trim().Length != 0))
+            if ((mtxt_Nome.Text.Trim().Length != 0) && (mtxt_Senha.Text.Trim().Length != 0) && (mtxt_Usuario.Text.Trim().Length != 0) && (mtxt_ComparacaoSenha.Text.Trim().Length != 0)&&(mtxt_RespostaSecreta.Text.Trim().Length !=0))
             {
                 if (mtxt_ComparacaoSenha.Text == mtxt_Senha.Text)
                 {
@@ -110,9 +110,9 @@ namespace Trabalho_Cadastro.View
                                 }
                                 else
                                 {
-                                    Cadastrar_Usuario d = new Cadastrar_Usuario();
-                                    int y = d.VerificadordeUsuarioeSenha(mtxt_Usuario.Text, mtxt_Senha.Text);
-
+                                    VerificadorUsuarioeSenha v = new VerificadorUsuarioeSenha(mtxt_Usuario.Text, mtxt_Senha.Text);
+                                    int y = v.Resultado;
+                                    
                                     if (y == 0)
                                     {
                                         try
@@ -184,6 +184,17 @@ namespace Trabalho_Cadastro.View
             mtxt_Senha.Text = "";
             mtxt_Usuario.Text = "";
             mtxt_ComparacaoSenha.Text = "";
+            mtxt_RespostaSecreta.Text = "";
+        }
+
+        private void maskedTextBox1_Click(object sender, EventArgs e)
+        {
+            mtxt_RespostaSecreta.SelectionStart = mtxt_RespostaSecreta.Text.Length;
+        }
+
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            mtxt_RespostaSecreta.Enabled = true;
         }
 
     }

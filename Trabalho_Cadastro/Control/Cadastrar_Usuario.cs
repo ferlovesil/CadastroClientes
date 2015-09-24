@@ -21,34 +21,5 @@ namespace Trabalho_Cadastro.Control
             CriadordeArquivo.WriteLine(Nome.Trim() + "*" + Usuario.Trim() + "*" + Senha.Trim());
             CriadordeArquivo.Close();
         }
-
-        public int VerificadordeUsuarioeSenha(string Usuario, string Senha)
-        {
-            int i = 0;
-            StreamReader LeitordeArquivo;
-            LeitordeArquivo = new StreamReader(caminho);
-            string Linha;
-
-            while ((Linha = LeitordeArquivo.ReadLine()) != null)
-            {
-                string Aux_Linha, Aux_Usuario, Aux_Nome, Aux_Senha;
-                Aux_Linha = Linha;
-                string[] Aux_Conjunto = Linha.Split('*');
-                
-                    Aux_Nome = Aux_Conjunto[0];
-                    Aux_Usuario = Aux_Conjunto[1];
-                    Aux_Senha = Aux_Conjunto[2];
-
-                    if ((string.Compare(Usuario,Aux_Usuario)==0)&&(string.Compare(Senha,Aux_Senha)==0))
-                    {
-                        i = 1;
-
-                    }
-
-            }
-            LeitordeArquivo.Close();
-            return i;
-           
-        }
     }
 }
