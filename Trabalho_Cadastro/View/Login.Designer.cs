@@ -28,15 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_Informacao = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.mtxt_UsuarioLogin = new System.Windows.Forms.MaskedTextBox();
             this.mtxt_SenhaLogin = new System.Windows.Forms.MaskedTextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pbImagem = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagem)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -71,21 +76,14 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Senha:";
             // 
-            // panel1
+            // txt_Informacao
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(139, 161);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 94);
-            this.panel1.TabIndex = 5;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(127, 304);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(226, 44);
-            this.textBox3.TabIndex = 6;
+            this.txt_Informacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.txt_Informacao.Location = new System.Drawing.Point(127, 304);
+            this.txt_Informacao.Multiline = true;
+            this.txt_Informacao.Name = "txt_Informacao";
+            this.txt_Informacao.Size = new System.Drawing.Size(226, 44);
+            this.txt_Informacao.TabIndex = 6;
             // 
             // button2
             // 
@@ -131,18 +129,51 @@
             this.mtxt_SenhaLogin.Click += new System.EventHandler(this.mtxt_SenhaLogin_Click);
             this.mtxt_SenhaLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mtxt_SenhaLogin_KeyDown);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "alcaph.jpg");
+            this.imageList1.Images.SetKeyName(1, "atingian.jpg");
+            this.imageList1.Images.SetKeyName(2, "boyes.jpg");
+            this.imageList1.Images.SetKeyName(3, "comok.jpg");
+            this.imageList1.Images.SetKeyName(4, "dessib.jpg");
+            this.imageList1.Images.SetKeyName(5, "hibactor.jpg");
+            this.imageList1.Images.SetKeyName(6, "mysome.jpg");
+            this.imageList1.Images.SetKeyName(7, "pirse.jpg");
+            this.imageList1.Images.SetKeyName(8, "quell.jpg");
+            this.imageList1.Images.SetKeyName(9, "sural.jpg");
+            // 
+            // pbImagem
+            // 
+            this.pbImagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImagem.Location = new System.Drawing.Point(164, 159);
+            this.pbImagem.Name = "pbImagem";
+            this.pbImagem.Size = new System.Drawing.Size(225, 84);
+            this.pbImagem.TabIndex = 12;
+            this.pbImagem.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(42, 183);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 13;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(476, 465);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pbImagem);
             this.Controls.Add(this.mtxt_SenhaLogin);
             this.Controls.Add(this.mtxt_UsuarioLogin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.txt_Informacao);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -150,6 +181,8 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,12 +193,14 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_Informacao;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox mtxt_UsuarioLogin;
         private System.Windows.Forms.MaskedTextBox mtxt_SenhaLogin;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox pbImagem;
+        private System.Windows.Forms.Label label4;
 
 
     }

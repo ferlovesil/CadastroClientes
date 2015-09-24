@@ -174,8 +174,7 @@ namespace Trabalho_Cadastro.View
 
         private void btn_Voltar_Click(object sender, EventArgs e)
         {
-            Cadastrar_Usuario l = new Cadastrar_Usuario();
-            l.VerificadordeUsuarioeSenha(mtxt_Usuario.Text, mtxt_Senha.Text);
+            
 
         }
 
